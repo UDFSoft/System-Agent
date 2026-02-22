@@ -144,24 +144,23 @@ API_KEY="your_real_key"
 To run the script automatically every minute:
 
 ```bash
-crontab -e
+sudo crontab -e
 ```
 
 Add:
 
 ```bash
-* * * * * /opt/smart-control/command-executor.sh >> /var/log/smart-control.log 2>&1
+*/5 * * * * /opt/smart-control/command-executor.sh >/dev/null 2>&1
 ```
 
 This means:
 
-- Run every minute  
-- Log output to `/var/log/smart-control.log`
+- Run every 5 minutes
 
 Check cron:
 
 ```bash
-crontab -l
+sudo crontab -l
 ```
 
 ---
